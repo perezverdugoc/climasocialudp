@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clima Social · Encuesta ICSOH-UDP</title>
+<meta name="description" content="Serie Clima Social de la Encuesta ICSOH-UDP: informes, cuestionarios, datos abiertos y podcast de cada capítulo, 2025–2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --negro:#1C1C1C; --beige:#E4E0D5; --mandy:#D36473; --mandy-claro:#E37C8A;
+    --texto:#1C1C1C; --gris:#6B675F; --linea:#D9D5CA; --blanco:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Work Sans",system-ui,sans-serif;color:var(--texto);background:var(--blanco);line-height:1.55;font-size:16px}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  /* Header */
+  header{background:var(--negro);color:#F4F4F4;position:sticky;top:0;z-index:10}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+  .marca{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .marca strong{font-weight:500;letter-spacing:.01em}
+  .marca span{font-weight:300;color:#B9B4A9}
+  nav a{color:#F4F4F4;text-decoration:none;font-size:14px;margin-left:22px;opacity:.85}
+  nav a:hover{opacity:1;color:var(--mandy-claro)}
+
+  /* Hero */
+  .hero{background:var(--negro);color:#F4F4F4;padding:72px 0 80px}
+  .hero .wrap{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mandy-claro);font-weight:500;margin-bottom:16px}
+  .hero h1{font-weight:300;font-size:clamp(34px,5vw,56px);line-height:1.08;margin-bottom:20px}
+  .hero p{max-width:560px;color:#CFCAC0;font-size:17px}
+  .hero .ctas{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-block;padding:10px 18px;border:1px solid currentColor;text-decoration:none;font-size:14px;font-weight:500}
+  .btn.solido{background:var(--mandy);border-color:var(--mandy);color:#fff}
+  .btn:hover{opacity:.85}
+
+  /* Secciones */
+  section{padding:64px 0}
+  section.beige{background:var(--beige)}
+  h2{font-weight:400;font-size:30px;margin-bottom:8px}
+  .bajada{color:var(--gris);margin-bottom:36px;max-width:640px}
+
+  /* Capítulos 2026 */
+  .cap{border-left:4px solid var(--c);padding:22px 0 22px 24px;border-bottom:1px solid var(--linea)}
+  .cap:first-of-type{border-top:1px solid var(--linea)}
+  .cap .meta{font-size:13px;color:var(--gris);letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+  .cap .meta b{color:var(--c);font-weight:600}
+  .cap h3{font-weight:500;font-size:22px;line-height:1.25}
+  .cap .sub{color:var(--gris);margin-top:2px}
+  .docs{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .doc{font-size:13px;padding:7px 12px;border:1px solid var(--linea);text-decoration:none;background:#fff;white-space:nowrap}
+  .doc:hover{border-color:var(--negro)}
+  .doc.principal{background:var(--negro);color:#fff;border-color:var(--negro);font-weight:500}
+  .doc.principal:hover{background:var(--mandy);border-color:var(--mandy)}
+
+  /* Serie 2025 */
+  details{border-bottom:1px solid #CBC6B9}
+  details:first-of-type{border-top:1px solid #CBC6B9}
+  summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:70px 150px 1fr 24px;gap:12px;align-items:center;padding:16px 0}
+  summary::-webkit-details-marker{display:none}
+  summary .n{font-weight:600;color:var(--mandy)}
+  summary .f{font-size:14px;color:var(--gris)}
+  summary .t{font-weight:500}
+  summary .mas{font-size:20px;font-weight:300;transition:transform .2s;text-align:right}
+  details[open] summary .mas{transform:rotate(45deg)}
+  details .docs{margin:0 0 18px 82px}
+  details .doc{background:transparent;border-color:#BDB8AA}
+
+  /* Podcast */
+  .podcast{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .podcast p{color:var(--gris)}
+
+  /* Equipo */
+  .equipo{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 32px}
+  .persona h4{font-weight:500;font-size:17px;margin-bottom:4px}
+  .persona p{font-size:14px;color:var(--gris)}
+
+  footer{background:var(--negro);color:#B9B4A9;padding:36px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  footer a{color:#F4F4F4}
+
+  @media (max-width:760px){
+    nav{display:none}
+    .hero .wrap{grid-template-columns:1fr}
+    .hero svg{display:none}
+    .podcast,.equipo{grid-template-columns:1fr}
+    summary{grid-template-columns:50px 1fr 24px}
+    summary .f{display:none}
+    details .docs{margin-left:0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="marca" href="#inicio">
+      <svg width="30" height="16" viewBox="0 0 30 16" aria-hidden="true"><rect x="1" y="1" width="25" height="14" fill="none" stroke="#E37C8A" stroke-width="1.6"/><rect x="26.5" y="5" width="2.5" height="6" fill="#E37C8A"/></svg>
+      <strong>Clima Social</strong><span>· Encuesta ICSOH-UDP</span>
+    </a>
+    <nav>
+      <a href="#serie-2026">Serie 2026</a>
+      <a href="#serie-2025">Serie 2025</a>
+      <a href="#podcast">Podcast</a>
+      <a href="#equipo">Equipo</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Encuesta ICSOH-UDP · Serie Clima Social</p>
+      <h1>¿Cómo se siente Chile?<br>Lo medimos.</h1>
+      <p>Encuesta periódica sobre emociones, percepciones y preferencias de la ciudadanía en Chile. Cada capítulo publica su informe, cuestionario y datos abiertos para quien quiera usarlos.</p>
+      <div class="ctas">
+        <a class="btn solido" href="#serie-2026">Ver capítulos 2026</a>
+        <a class="btn" href="#serie-2025">Serie 2025</a>
+      </div>
+    </div>
+    <svg width="220" height="110" viewBox="0 0 220 110" aria-hidden="true">
+      <rect x="4" y="4" width="190" height="102" fill="none" stroke="#E37C8A" stroke-width="4"/>
+      <rect x="196" y="36" width="18" height="38" fill="#E37C8A"/>
+    </svg>
+  </div>
+</div>
+
+<section id="serie-2026">
+  <div class="wrap">
+    <h2>Serie Clima Social 2026</h2>
+    <p class="bajada">En 2025 medimos cómo se sentía Chile antes de votar. En 2026 medimos qué cambió.</p>
+    <div id="lista-2026"></div>
+  </div>
+</section>
+
+<section id="serie-2025" class="beige">
+  <div class="wrap">
+    <h2>Serie Clima Social 2025</h2>
+    <p class="bajada">Ocho capítulos, de mayo de 2025 a enero de 2026. Haz clic en cada uno para ver sus documentos.</p>
+    <div id="lista-2025"></div>
+  </div>
+</section>
+
+<section id="podcast">
+  <div class="wrap podcast">
+    <div>
+      <h2>Podcast «¿Qué dicen los datos?»</h2>
+      <p>Investigadoras e investigadores de la encuesta conversan sobre los resultados de cada capítulo.</p>
+    </div>
+    <div class="docs" id="links-podcast"></div>
+  </div>
+</section>
+
+<section id="equipo" class="beige">
+  <div class="wrap">
+    <h2>Equipo</h2>
+    <p class="bajada">Instituto de Investigación en Ciencias Sociales y Humanidades, Universidad Diego Portales.</p>
+    <div class="equipo" id="lista-equipo"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Clima Social · Encuesta ICSOH-UDP · Universidad Diego Portales</span>
+    <span>Todos los documentos: <a href="https://icso.udp.cl/encuesta" target="_blank" rel="noopener">icso.udp.cl/encuesta</a></span>
+  </div>
+</footer>
+
+<script src="datos.js"></script>
+<script>
+  const ext = 'target="_blank" rel="noopener"';
+  const boton = (url, txt, cls="") => url ? `<a class="doc ${cls}" href="${encodeURI(url)}" ${ext}>${txt}</a>` : "";
+
+  // Serie 2026 · orden fijo de botones
+  document.getElementById("lista-2026").innerHTML = serie2026.map(c => `
+    <article class="cap" style="--c:${c.color}">
+      <p class="meta"><b>Capítulo ${c.cap}</b> · ${c.fecha}</p>
+      <h3>${c.titulo}</h3>
+      ${c.subtitulo ? `<p class="sub">${c.subtitulo}</p>` : ""}
+      <div class="docs">
+        ${boton(c.comunicado,"Comunicado")}
+        ${boton(c.podcast,"Podcast")}
+        ${boton(c.informe,"Informe de resultados","principal")}
+        ${boton(c.infocus,"Informe cualitativo (Infocus)")}
+        ${boton(c.cuestionario,"Cuestionario")}
+        ${boton(c.ficha,"Ficha técnica")}
+        ${boton(c.tablas,"Tablas")}
+        ${boton(c.base,"Base de datos")}
+      </div>
+    </article>`).join("");
+
+  // Serie 2025
+  document.getElementById("lista-2025").innerHTML = serie2025.map(c => `
+    <details>
+      <summary><span class="n">Cap. ${c.cap}</span><span class="f">${c.fecha}</span><span class="t">${c.titulo}</span><span class="mas">+</span></summary>
+      <div class="docs">
+        ${boton(c.nota,"Nota de resultados")}
+        ${boton(c.podcast,"Podcast")}
+        ${boton(c.informe,"Informe de resultados","principal")}
+        ${boton(c.infocus,"Informe cualitativo")}
+        ${boton(c.cuestionario,"Cuestionario")}
+        ${boton(c.manual,"Manual de usuario")}
+        ${boton(c.tablas,"Tablas")}
+        ${boton(c.base,"Base de datos")}
+      </div>
+    </details>`).join("");
+
+  document.getElementById("links-podcast").innerHTML =
+    boton(SITIO.spotify,"Escuchar en Spotify","principal") + boton(SITIO.youtube,"Ver en YouTube") + boton(SITIO.instagram,"Instagram @climasocialudp");
+
+  document.getElementById("lista-equipo").innerHTML = equipo.map(p =>
+    `<div class="persona"><h4>${p.nombre}</h4><p>${p.cargo}</p></div>`).join("");
+
+  // Altura para iframe (opcional: el sitio que la incrusta puede escuchar este mensaje)
+  const avisarAltura = () => parent.postMessage({climaSocialAltura: document.documentElement.scrollHeight}, "*");
+  window.addEventListener("load", avisarAltura);
+  new ResizeObserver(avisarAltura).observe(document.body);
+</script>
+</body>
+</html>
