@@ -13,7 +13,27 @@ const SITIO = {
   spotify: "https://open.spotify.com/show/033pnrFlCGefunJtLCGJ5L",
   youtube: "https://www.youtube.com/@climasocialudp",
   instagram: "https://www.instagram.com/climasocialudp/",
+  tiktok: "https://www.tiktok.com/@climasocialudp",
+  x: "https://x.com/climasocialudp",
   repositorio: "https://icso.udp.cl/encuesta"
+};
+
+/* ---------- FORMULARIO "MANTENTE AL TANTO" ----------
+   Mientras "accion" esté vacío, la sección no se muestra en el sitio publicado
+   (sí se ve al abrir index.html en tu computador, como vista previa). */
+const FORMULARIO = {
+  accion: "",
+  campos: { nombre: "", correo: "", relacion: "", institucion: "", cargo: "" }
+};
+
+/* ---------- ENCUESTA BREVE (portada) ----------
+   Cambia "mes" cada mes. Mientras "accion" esté vacío, no se muestra en el sitio publicado. */
+const ENCUESTA_BREVE = {
+  mes: "Noviembre 2026",
+  pregunta: "¿Cómo está el clima social en Chile?",
+  opciones: ["Despejado", "Nubosidad parcial", "Nublado", "Lluvia", "Tormenta"],
+  accion: "",
+  campo: ""
 };
 
 /* ---------- SERIE 2026 (el más reciente primero) ---------- */
