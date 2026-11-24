@@ -28,7 +28,9 @@
   .marca{display:flex;align-items:center;gap:12px;text-decoration:none}
   .marca .iso{width:40px}
   .marca small{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#B9B4A9;margin-bottom:3px;line-height:1}
-  .marca .texto{width:150px}
+  .marca .texto{width:150px;transition:opacity .25s}
+  .marca .lockup{transition:opacity .25s}
+  body:not(.bajo) .marca .lockup{opacity:0;pointer-events:none}
   nav a{color:#F4F4F4;text-decoration:none;font-size:14px;margin-left:22px;opacity:.85}
   nav a:hover{opacity:1;color:var(--mandy)}
   nav a.destacado{color:var(--mandy);opacity:1;font-weight:500}
@@ -36,12 +38,12 @@
 
   /* Bloque editorial oscuro: portada + podcast */
   .editorial{background:var(--negro);color:#F4F4F4}
-  .hero{padding:56px 0 56px}
+  .hero{padding:40px 0 44px}
   .hero .wrap{display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:center}
-  .logo-principal{width:280px;margin-bottom:28px}
+  .logo-principal{width:230px;margin-bottom:22px}
   .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mandy);font-weight:500;margin-bottom:14px}
-  .hero h1{font-weight:300;font-size:clamp(32px,4.4vw,50px);line-height:1.1;margin-bottom:18px}
-  .hero p{max-width:540px;color:var(--gris-osc);font-size:17px}
+  .hero h1{font-weight:300;font-size:clamp(30px,4vw,46px);line-height:1.1;margin-bottom:14px}
+  .hero p{max-width:520px;color:var(--gris-osc);font-size:16px}
   .ctas{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
   .btn{display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border:1px solid currentColor;text-decoration:none;font-size:15px;font-weight:500;border-radius:2px}
   .btn img{width:18px;height:18px}
@@ -49,12 +51,13 @@
   .btn:hover{opacity:.85}
 
   /* Encuesta breve */
-  .breve{background:var(--negro-2);border:1px solid #333;border-radius:6px;padding:26px}
+  .breve{background:var(--negro-2);border:1px solid #333;border-radius:6px;padding:22px}
   .breve .mes{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mandy);font-weight:500}
-  .breve h2{font-weight:400;font-size:21px;line-height:1.3;margin:8px 0 18px}
+  .breve h2{font-weight:400;font-size:19px;line-height:1.3;margin:6px 0 14px}
   .opciones{display:grid;gap:8px}
-  .opcion{display:flex;align-items:center;gap:14px;width:100%;font:inherit;font-size:15px;color:#F4F4F4;background:transparent;border:1px solid #444;border-radius:4px;padding:10px 14px;cursor:pointer;text-align:left}
-  .opcion svg{width:26px;height:26px;flex:none;stroke:#F4F4F4;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .opciones{grid-template-columns:repeat(5,1fr)!important;gap:6px!important}
+  .opcion{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;font:inherit;font-size:12px;line-height:1.2;color:#F4F4F4;background:transparent;border:1px solid #444;border-radius:4px;padding:12px 4px;cursor:pointer;text-align:center}
+  .opcion svg{width:30px;height:30px;flex:none;stroke:#F4F4F4;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
   .opcion:hover{border-color:var(--mandy)}
   .opcion[aria-pressed="true"]{border-color:var(--mandy);background:rgba(211,100,115,.14)}
   .opcion[aria-pressed="true"] svg{stroke:var(--mandy)}
@@ -68,8 +71,8 @@
   .editorial .carga b,.suscribe .carga b{background:#F4F4F4}
 
   /* Podcast destacado */
-  .podcast{padding:0 0 64px}
-  .podcast .grid{display:grid;grid-template-columns:5fr 6fr;gap:48px;align-items:center;border-top:1px solid #333;padding-top:52px}
+  .podcast{padding:0 0 48px}
+  .podcast .grid{display:grid;grid-template-columns:5fr 6fr;gap:48px;align-items:center;border-top:1px solid #333;padding-top:40px}
   .podcast h2{font-weight:400;font-size:clamp(28px,3.6vw,40px);line-height:1.15;margin:14px 0 12px}
   .podcast p{color:var(--gris-osc);max-width:440px}
   .podcast .btn{font-size:14px;padding:10px 16px;color:#F4F4F4;border-color:#5A5752}
@@ -77,7 +80,7 @@
   .reproductor{width:100%;border:0;border-radius:12px;display:block}
 
   /* Secciones claras */
-  section.clara{padding:64px 0}
+  section.clara{padding:52px 0}
   .cabeza{margin-bottom:24px}
   .cabeza h2{font-weight:400;font-size:30px;margin:14px 0 6px}
   .bajada{color:var(--gris);max-width:640px}
@@ -90,29 +93,35 @@
   .pestana small{font-weight:400;color:var(--gris);margin-left:6px}
   .panel .bajada{margin-bottom:16px;font-size:15px}
 
-  /* Ficha de capítulo compacta */
-  .lista{display:grid;gap:10px}
-  .cap{background:var(--blanco);border:1px solid var(--linea);border-left:4px solid var(--c,var(--mandy));padding:16px 20px;border-radius:2px;display:grid;grid-template-columns:1fr auto;gap:6px 24px;align-items:center}
-  .cap .meta{font-size:12px;color:var(--gris);letter-spacing:.04em;text-transform:uppercase}
-  .cap .meta b{color:var(--mandy-deep);font-weight:600}
-  .cap h3{font-weight:500;font-size:19px;line-height:1.25}
-  .cap .sub{color:var(--gris);font-size:15px}
-  .cap .acciones{grid-column:2;grid-row:1/span 3;justify-content:flex-end}
-  .cap .mas-docs{grid-column:1/-1}
-  .acciones{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-  .doc{font-size:13px;padding:7px 12px;border:1px solid #CFCAC0;text-decoration:none;background:transparent;white-space:nowrap;border-radius:2px}
+  /* Fichas de capítulo en grilla */
+  .lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+  .cap{background:var(--blanco);border:1px solid var(--linea);border-radius:6px;display:flex;flex-direction:column;overflow:hidden;transition:transform .15s,box-shadow .15s}
+  .cap:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(28,28,28,.08)}
+  .cap .top{background:var(--negro);color:#F4F4F4;padding:14px 18px 12px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+  .cap .num{font-size:44px;font-weight:300;line-height:.9;color:var(--mandy);letter-spacing:-.02em}
+  .cap .fecha{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris-osc);text-align:right}
+  .cap .carga-cap{height:4px;background:linear-gradient(90deg,var(--mandy) var(--p),#3A3A3A var(--p))}
+  .cap .cuerpo{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
+  .cap h3{font-weight:500;font-size:18px;line-height:1.25}
+  .cap .sub{color:var(--gris);font-size:14px;line-height:1.4}
+  .cap .acciones{margin-top:auto;padding-top:14px}
+  .acciones{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .doc{font-size:13px;padding:7px 11px;border:1px solid #CFCAC0;text-decoration:none;background:transparent;white-space:nowrap;border-radius:2px}
   .doc:hover{border-color:var(--negro)}
   .doc.principal{background:var(--negro);color:#fff;border-color:var(--negro);font-weight:500}
   .doc.principal:hover{background:var(--mandy);border-color:var(--mandy)}
   .doc.escuchar{border-color:var(--mandy);color:var(--mandy-deep);font-weight:500}
   .doc.escuchar:hover{background:var(--mandy);color:#fff}
+  .mas-docs{padding:0 18px 14px}
   .mas-docs summary{list-style:none;cursor:pointer;font-size:13px;color:var(--gris);display:inline-flex;gap:6px;align-items:center}
   .mas-docs summary::-webkit-details-marker{display:none}
   .mas-docs summary::after{content:"+";font-size:16px;line-height:1;transition:transform .2s}
   .mas-docs[open] summary::after{transform:rotate(45deg)}
   .mas-docs summary:hover{color:var(--texto)}
   .mas-docs .acciones{margin-top:10px}
-  .panel-2025 .cap{background:var(--beige-lt);border-color:var(--beige-lt);border-left-color:var(--mandy)}
+  .panel-2025 .cap .top{background:var(--beige-lt);color:var(--texto)}
+  .panel-2025 .cap .fecha{color:var(--gris)}
+  .panel-2025 .cap .carga-cap{background:linear-gradient(90deg,var(--mandy) var(--p),#D5CFC2 var(--p))}
 
   /* Mantente al tanto */
   .suscribe{background:var(--negro);color:#F4F4F4;border-radius:6px;padding:40px;display:grid;grid-template-columns:4fr 7fr;gap:40px}
@@ -130,9 +139,9 @@
   .opc{color:#8E8A82}
 
   /* Equipo */
-  .equipo{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 32px}
+  .equipo{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px 28px}
   .persona h4{font-weight:500;font-size:17px;margin-bottom:4px}
-  .persona p{font-size:14px;color:var(--gris)}
+  .persona p{font-size:13px;color:var(--gris);line-height:1.45}
 
   /* Pie (negro) con pie de firma institucional y redes */
   footer{background:var(--negro);color:#B9B4A9;font-size:14px}
@@ -148,10 +157,6 @@
   .redes a:hover{border-color:var(--mandy);background:var(--negro-2)}
   .redes img{width:18px;height:18px}
 
-  @media (max-width:820px){
-    .cap{grid-template-columns:1fr}
-    .cap .acciones{grid-column:1;grid-row:auto;justify-content:flex-start;margin-top:8px}
-  }
   @media (max-width:760px){
     .menu-btn{display:block}
     .marca small{display:none}
@@ -161,10 +166,11 @@
     .hero{padding:40px 0}
     .hero .wrap{grid-template-columns:1fr;gap:32px}
     .logo-principal{width:220px}
-    .podcast .grid,.equipo,.suscribe,.form{grid-template-columns:1fr}
+    .podcast .grid,.suscribe,.form{grid-template-columns:1fr}
+    .opciones{grid-template-columns:repeat(5,1fr)!important}
+    .opcion{font-size:11px;padding:10px 2px}
     .podcast .grid{gap:28px;padding-top:40px}
     .suscribe{padding:28px 22px;gap:24px}
-    .cap{padding:14px 16px}
     .pestana{padding:10px 12px}
   }
 </style>
@@ -175,7 +181,7 @@
   <div class="wrap">
     <a class="marca" href="#inicio" aria-label="Clima Social, Observatorio de Desigualdades UDP">
       <img class="iso" src="img/isotipo-blanco.png" alt="" width="40" height="15">
-      <span><small>Observatorio de Desigualdades</small><img class="texto" src="img/logo-clima-texto-blanco.png" alt="Clima Social" width="150" height="15"></span>
+      <span class="lockup"><small>Observatorio de Desigualdades</small><img class="texto" src="img/logo-clima-texto-blanco.png" alt="Clima Social" width="150" height="15"></span>
     </a>
     <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menú</button>
     <nav id="menu" aria-label="Secciones">
@@ -321,15 +327,20 @@
       boton(c.cuestionario, "Cuestionario"), boton(c.ficha, "Ficha técnica"),
       boton(c.manual, "Manual de usuario"), boton(c.tablas, "Tablas"), boton(c.base, "Base de datos")
     ].join("");
+    const total = Math.max(...(serie === 2025 ? serie2025 : serie2026).map(x => x.cap));
+    const p = Math.round(100 * c.cap / total);
     return `
-    <article class="cap" id="cap-${serie}-${c.cap}" ${serie === 2026 && c.color ? `style="--c:${c.color}"` : ""}>
-      <p class="meta"><b>Capítulo ${c.cap}</b> · ${c.fecha}</p>
-      <h3>${c.titulo}</h3>
-      ${c.subtitulo ? `<p class="sub">${c.subtitulo}</p>` : ""}
-      <div class="acciones">
-        ${boton(c.podcast, "▶ Escuchar episodio", "escuchar")}
-        ${boton(c.infocus, "Infocus cualitativo")}
-        ${boton(c.informe, "Leer informe", "principal")}
+    <article class="cap" id="cap-${serie}-${c.cap}">
+      <div class="top"><span class="num">${String(c.cap).padStart(2,"0")}</span><span class="fecha">Capítulo ${c.cap}<br>${c.fecha}</span></div>
+      <div class="carga-cap" style="--p:${p}%"></div>
+      <div class="cuerpo">
+        <h3>${c.titulo}</h3>
+        ${c.subtitulo ? `<p class="sub">${c.subtitulo}</p>` : ""}
+        <div class="acciones">
+          ${boton(c.informe, "Leer informe", "principal")}
+          ${boton(c.podcast, "▶ Episodio", "escuchar")}
+          ${boton(c.infocus, "Infocus")}
+        </div>
       </div>
       ${secundarios ? `<details class="mas-docs"><summary>Más documentos</summary><div class="acciones">${secundarios}</div></details>` : ""}
     </article>`;
@@ -363,7 +374,7 @@
   const showId = (SITIO.spotify.match(/show\/([A-Za-z0-9]+)/) || [])[1];
   if (showId) {
     document.getElementById("reproductor-podcast").innerHTML =
-      `<iframe class="reproductor" title="Podcast ¿Qué dicen los datos? en Spotify" src="https://open.spotify.com/embed/show/${showId}?utm_source=generator&theme=0" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+      `<iframe class="reproductor" title="Podcast ¿Qué dicen los datos? en Spotify" src="https://open.spotify.com/embed/show/${showId}?utm_source=generator&theme=0" height="${window.innerWidth < 760 ? 152 : 352}" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
   }
   document.getElementById("links-podcast").innerHTML =
     enlace(SITIO.spotify, icono("spotify") + "Escuchar en Spotify", "btn solido") +
@@ -431,6 +442,10 @@
         .catch(() => { estado.textContent = "No se pudo enviar. Intenta de nuevo."; });
     });
   }
+
+  // Logo secundario del encabezado: aparece al pasar la portada
+  const hero = document.getElementById("inicio");
+  new IntersectionObserver(([e]) => document.body.classList.toggle("bajo", !e.isIntersecting), { rootMargin: "-60px 0px 0px 0px", threshold: 0.35 }).observe(hero);
 
   // Menú móvil
   const menuBtn = document.querySelector(".menu-btn"), menu = document.getElementById("menu");
